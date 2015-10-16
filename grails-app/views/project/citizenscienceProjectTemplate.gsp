@@ -153,13 +153,12 @@
         initialiseProjectArea();
         var pActivitiesVM = new ProjectActivitiesViewModel(pActivities, pActivityForms, project.projectId, project.sites, user);
         initialiseProjectActivitiesList(pActivitiesVM);
+        initialiseData();
 
         //Main tab selection
         new RestoreTab('ul-main-project', 'about-tab');
 
         <g:if test="${projectContent.admin.visible}">
-            initialiseData();
-
             initialiseProjectActivitiesSettings(pActivitiesVM);
 
             var projectStoriesMarkdown = '${(project.projectStories?:"").markdownToHtml().encodeAsJavaScript()}';
@@ -179,9 +178,6 @@
 
         $('.validationEngineContainer').validationEngine();
         $('.helphover').popover({animation: true, trigger:'hover'})    });
-
-
-
 </r:script>
 </body>
 </html>
